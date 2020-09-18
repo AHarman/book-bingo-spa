@@ -1,0 +1,27 @@
+.bookTable {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    thead {
+        background-color: white;
+        position: sticky;
+        top: 0;
+    }
+    th {
+        text-align: start;
+        border-bottom: 1px solid black;
+    }
+    tr {
+        &:nth-child(2n) {
+            background-color: aliceblue;
+        }
+    }
+    td {
+        height: 75px;
+        padding: 0;
+        img {
+            // Needed to prevent gap below image
+            vertical-align: top;
+        }
+    }
+}
