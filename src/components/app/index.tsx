@@ -12,10 +12,10 @@ import { getUser } from '../../services/BookBingoApi';
 import { User } from '../../models/User';
 
 export default function App(): JSX.Element {
-    const [ context, setContext ] = useState(() => ({
+    const [ context, setContext ] = useState<UserContextType>(() => ({
         user: undefined,
         setUser: (user: User): void => setContext(oldContext => ({...oldContext, user: user}))
-    } as UserContextType));
+    }));
 
     useEffect(() => {
         if (!context.user) {

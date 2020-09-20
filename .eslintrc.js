@@ -27,6 +27,7 @@ module.exports = {
     rules: {
         indent: ['error', 4],
         quotes: ['error', 'single'],
+        'eqeqeq': ['error', 'smart'],
         'no-var': "error",
         'prefer-const': "warn",
         'comma-dangle': ['warn', 'never'],
@@ -39,6 +40,16 @@ module.exports = {
         ],
         '@typescript-eslint/explicit-function-return-type': 'warn',
         'no-empty': 'warn',
+        '@typescript-eslint/member-delimiter-style': ['warn', {
+            multiline: {
+                delimiter: 'semi',
+                requireLast: true,
+            },
+            singleline: {
+                delimiter: 'semi',
+                requireLast: false,
+            }
+        }]
     },
     settings: {
         react: {
