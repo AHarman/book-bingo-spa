@@ -1,7 +1,6 @@
 import React from 'react';
 import { BookshelfEntry } from '../../models/BookshelfEntry';
-import { SortableTable } from '../sortableTable';
-import { Column } from '../table';
+import { SortableColumn, SortableTable } from '../sortableTable';
 import './BookTable.scss';
 
 interface BookTableProps {
@@ -44,13 +43,13 @@ function Cover(props: CoverProps): JSX.Element {
 }
 
 export default function BookTable(props: BookTableProps): JSX.Element {
-    const columns: Column<BookTableRow>[] = [
-        { key: 'cover', header: 'Cover', displayTransform: Cover },
-        { key: 'title', header: 'Title'},
-        { key: 'authors', header: 'Author' },
-        { key: 'publicationYear', header: 'Publication Year', displayTransform: (year: Number): string => year.toString() },
-        { key: 'read', header: 'Finished on', displayTransform: dateToString },
-        { key: 'added', header: 'Added to shelf', displayTransform: dateToString }
+    const columns: SortableColumn<BookTableRow>[] = [
+        { key: 'cover', header: 'Cover', isSortable: false, displayTransform: Cover},
+        { key: 'title', header: 'Title', isSortable: true},
+        { key: 'authors', header: 'Author', isSortable: true },
+        { key: 'publicationYear', header: 'Publication Year', isSortable: true, displayTransform: (year: Number): string => year.toString() },
+        { key: 'read', header: 'Finished on', isSortable: true, displayTransform: dateToString },
+        { key: 'added', header: 'Added to shelf', isSortable: true, displayTransform: dateToString }
     ];
 
     return (

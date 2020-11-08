@@ -2,21 +2,25 @@ import React from 'react';
 import { Sortable, SortState } from '../sortable';
 import { Column, Row, Table, TableProps } from '../table';
 
+export interface SortableColumn<T> extends Column<T> {
+    isSortable: boolean;
+}
 interface SortableTableProps<T> extends TableProps<T> {
     initialSort: SortState<Row<T>>;
+    columns: SortableColumn<T>[];
 }
 
 export function SortableTable<T>(props: SortableTableProps<T>): JSX.Element {
 
     return <Sortable initialSort={props.initialSort} items={props.rows}>
         {
-            (items: Row<T>[], sort: SortState<Row<T>>): JSX.Element => (
+            (items: Row<T>[], sort: SortState<Row<T>>, updateSort: (key: keyof T) => void): JSX.Element => (
                 <Table
                     rows={items}
                     columns={
                         props.columns.map(col => ({
                             ...col,
-                            header: <SortableColumn col={col} sort={sort}/>
+                            header: <SortableColumnHeader col={col} sort={sort} updateSort={updateSort}/>
                         }))
                     }/>
             )
@@ -24,18 +28,28 @@ export function SortableTable<T>(props: SortableTableProps<T>): JSX.Element {
     </Sortable>;
 }
 
-function SortableColumn<T>(props: { col: Column<T>; sort: SortState<Row<T>> }): JSX.Element {
-    let sortIndicator = null;
+interface SortableColumnHeaderProps<T> {
+    col: SortableColumn<T>;
+    sort: SortState<Row<T>>;
+    updateSort: (key: any) => void;
+}
 
-    if (props.sort.element === props.col.key) {
-        sortIndicator = <span className='sortIndicator'>{props.sort.direction === 'asc' ? '▲' : '▼'}</span>;
+function SortableColumnHeader<T>(props: SortableColumnHeaderProps<T>): JSX.Element {
+    const isSortOrder = props.sort.element === props.col.key
+    const sortIndicator = isSortOrder ?
+        <span className='sortIndicator'>{props.sort.direction === 'asc' ? '▲' : '▼'}</span> :
+        null;
+
+    if (props.col.isSortable) {
+        return (
+            <button
+                className={ isSortOrder ? '' : 'not-sort-order' }
+                onClick={(): void => props.updateSort(props.col.key)}>
+                {props.col.header}
+                {sortIndicator}
+            </button>
+        );
     }
 
-    // className={props.isSortOrder ? 'isSortOrder' : undefined}>
-    return (
-        <div>
-            {props.col.header}
-            {sortIndicator}
-        </div>
-    );
+    return <div>{props.col.header}</div>;
 }
