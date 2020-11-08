@@ -37,8 +37,5 @@ export function Sortable<T>(props: SortableProps<T>): JSX.Element {
     if (state.direction === 'desc') {
         sortedItems.reverse();
     }
-    console.log('Unsorted', props.items);
-    console.log('Sorted', props.items);
-
     return props.children(sortedItems, state, dispatch);
 }

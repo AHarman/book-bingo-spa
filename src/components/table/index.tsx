@@ -1,11 +1,12 @@
 import React, { ReactChild } from 'react';
 import { Key } from 'react';
 
-export type Row<T> = { [K in keyof(T)]: ReactChild} & { key: Key }
+export type Row<T> = { [K in keyof(T)]: any} & { key: Key }
 
 export interface Column<T> {
     key: keyof T & Key;
     header: ReactChild;
+    displayTransform?: (data: any) => ReactChild;
 }
 
 export interface TableProps<T> {
@@ -33,16 +34,28 @@ function TableHeader<T>(props: { columns: Column<T>[] }): JSX.Element {
     );
 }
 
+interface TableCellProps<T> {
+    column: Column<T>;
+    row: Row<T>;
+}
+
+function TableCell<T>(props: TableCellProps<T>): JSX.Element {
+    const contents = props.column.displayTransform ?
+        props.column.displayTransform(props.row[props.column.key]) :
+        props.row[props.column.key];
+
+    return <td>{contents}</td>;
+}
+
 interface TableRowProps<T> {
     row: Row<T>;
     columns: Column<T>[];
 }
 
-// TODO: Row needs some improvement?
 function TableRow<T>(props: TableRowProps<T>): JSX.Element {
     return (
         <tr key={props.row.key}>
-            { props.columns.map(col => <td key={col.key}>{props.row[col.key]}</td>) }
+            { props.columns.map(col => <TableCell key={col.key} column={col} row={props.row}/>) }
         </tr>
     );
 }

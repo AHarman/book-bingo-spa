@@ -15,7 +15,7 @@ export function SortableTable<T>(props: SortableTableProps<T>): JSX.Element {
                     rows={items}
                     columns={
                         props.columns.map(col => ({
-                            key: col.key,
+                            ...col,
                             header: <SortableColumn col={col} sort={sort}/>
                         }))
                     }/>

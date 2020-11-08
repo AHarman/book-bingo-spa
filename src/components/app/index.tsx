@@ -19,7 +19,7 @@ export default function App(): JSX.Element {
 
     useEffect(() => {
         if (!context.user) {
-            getUser().then(user => context.setUser(user));
+            getUser().then(user => context.setUser(user)).catch(e => console.log('oh no', e));
         }
     }, [context]);
 
