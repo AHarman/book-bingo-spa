@@ -12,7 +12,7 @@ interface BookTableRow {
     cover: CoverProps;
     title: string;
     authors: string;
-    publicationYear: Number;
+    publicationYear?: Number;
     read?: Date;
     added: Date;
 }
