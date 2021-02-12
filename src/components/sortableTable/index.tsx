@@ -1,4 +1,3 @@
-import React from 'react';
 import { Sortable, SortState } from '../sortable';
 import { Column, Row, Table, TableProps } from '../table';
 
@@ -6,7 +5,7 @@ export interface SortableColumn<T> extends Column<T> {
     isSortable: boolean;
 }
 interface SortableTableProps<T> extends TableProps<T> {
-    initialSort: SortState<Row<T>>;
+    initialSort: SortState<T>;
     columns: SortableColumn<T>[];
 }
 

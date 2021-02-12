@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../../../context/UserContext';
-import { BookshelfEntry } from '../../../models/BookshelfEntry';
-import { getBookshelf } from '../../../services/BookBingoApi';
-import BookTable from '../../bookTable';
-import './Books.scss';
+import { UserContext } from '../../context/UserContext';
+import { BookshelfEntry } from '../../models/BookshelfEntry';
+import { getBookshelf } from '../../services/BookBingoApi';
+import BookTable from '../../components/bookTable';
+import './Books.module.scss';
 
 export default function Books(): JSX.Element {
     const context = useContext(UserContext);

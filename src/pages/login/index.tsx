@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { getRequestToken } from '../../../services/BookBingoApi';
+import { useState, useEffect } from 'react';
+import { getRequestToken } from '../../services/BookBingoApi';
 
 export default function Login(): JSX.Element {
     const [token, setToken] = useState('');

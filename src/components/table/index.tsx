@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react';
+import { ReactChild } from 'react';
 import { Key } from 'react';
 
 export type Row<T> = { [K in keyof(T)]: any} & { key: Key }

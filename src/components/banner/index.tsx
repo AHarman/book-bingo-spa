@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import Link from 'next/link';
 import { UserContext } from '../../context/UserContext';
-import './banner.scss';
+import './banner.module.css';
 
 export default function Banner(): JSX.Element {
     const context = useContext(UserContext);
@@ -11,7 +11,7 @@ export default function Banner(): JSX.Element {
         {
             context.user ?
                 <span>Welcome, {context.user.name}</span> :
-                <Link to="/login">Log in</Link>
+                <Link href="/login">Log in</Link>
         }
     </header>;
 }

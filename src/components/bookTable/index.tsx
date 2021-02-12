@@ -1,7 +1,6 @@
-import React from 'react';
 import { BookshelfEntry } from '../../models/BookshelfEntry';
 import { SortableColumn, SortableTable } from '../sortableTable';
-import './BookTable.scss';
+import './BookTable.module.scss';
 
 interface BookTableProps {
     books: BookshelfEntry[];
