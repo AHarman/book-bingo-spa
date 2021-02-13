@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Home(): JSX.Element {
+export default function HomePage(): JSX.Element {
     return (
         <>
             <h2>Home page</h2>

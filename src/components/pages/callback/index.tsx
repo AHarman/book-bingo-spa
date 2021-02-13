@@ -4,7 +4,7 @@ import { useQueryValue } from '../../../hooks/UseQueryString';
 import { getAccessToken } from '../../../services/BookBingoApi';
 import { UserContext } from '../../../context/UserContext';
 
-export default function LoginCallback(): JSX.Element {
+export default function LoginCallbackPage(): JSX.Element {
     const requestToken = useQueryValue('oauth_token');
     const userContext = useContext(UserContext);
 

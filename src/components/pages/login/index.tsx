@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getRequestToken } from '../../../services/BookBingoApi';
 
-export default function Login(): JSX.Element {
+export default function LoginPage(): JSX.Element {
     const [token, setToken] = useState('');
 
     useEffect(() => {

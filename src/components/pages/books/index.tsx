@@ -5,7 +5,7 @@ import { getBookshelf } from '../../../services/BookBingoApi';
 import BookTable from '../../bookTable';
 import './Books.scss';
 
-export default function Books(): JSX.Element {
+export default function BooksPage(): JSX.Element {
     const context = useContext(UserContext);
     const [shelf, setShelf] = useState<BookshelfEntry[]>([]);
 
