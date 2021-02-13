@@ -1,6 +1,6 @@
-import { Author } from './Author';
+import { AuthorModel } from './Author';
 
-export interface Book {
+export interface BookModel {
     isbn: string;
     title: string;
     publicationYear: number;
@@ -8,5 +8,5 @@ export interface Book {
     publicationDay?: number;
     coverUri: string;
     smallCoverUri: string;
-    authors: Author[];
+    authors: AuthorModel[];
 }

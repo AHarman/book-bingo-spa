@@ -1,10 +1,10 @@
-import { BingoCard } from '../models/BingoCard';
+import { BingoCardModel } from '../models/BingoCard';
 
-const cards: {[key: string]: BingoCard} = {
+const cards: {[key: string]: BingoCardModel} = {
     "reddit-fantasy-2020": {
         "name": "r/Fantasy 2020 Book Bingo Challenge",
         "url": "https://www.reddit.com/r/Fantasy/comments/ft254j/official_rfantasy_2020_book_bingo_challenge/",
-        "card": [
+        "squares": [
             [
                 {
                     "title": "Novel Translated from its Original Language",
@@ -120,7 +120,7 @@ const cards: {[key: string]: BingoCard} = {
     "reddit-fantasy-2020-hard": {
         "name": "r/Fantasy 2020 Book Bingo Challenge - Hard mode",
         "url": "https://www.reddit.com/r/Fantasy/comments/ft254j/official_rfantasy_2020_book_bingo_challenge/",
-        "card": [
+        "squares": [
             [
                 {
                     "title": "Novel Translated from its Original Language",

@@ -1,9 +1,9 @@
 import { createContext } from 'react';
-import { User } from '../models/User';
+import { UserModel } from '../models/User';
 
 export interface UserContextType {
-    user: User | undefined,
-    setUser: (user: User) => void
+    user: UserModel | undefined,
+    setUser: (user: UserModel) => void
 }
 
 export const defaultUserContext: UserContextType = {

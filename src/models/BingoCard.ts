@@ -1,7 +1,7 @@
-import { BingoCardSquare } from './BingoCardSquare';
+import { BingoCardSquareModel } from './BingoCardSquare';
 
-export interface BingoCard {
+export interface BingoCardModel {
     name: string;
     url: string;
-    card: Array<Array<BingoCardSquare>>;
+    squares: Array<Array<BingoCardSquareModel>>;
 }

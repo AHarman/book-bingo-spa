@@ -1,4 +1,4 @@
-export interface BingoCardSquare {
+export interface BingoCardSquareModel {
     title: string;
     description: string;
 }

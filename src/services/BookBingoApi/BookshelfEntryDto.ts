@@ -1,4 +1,4 @@
-import { Book } from '../../models/Book';
+import { BookModel } from '../../models/Book';
 
 export interface BookshelfEntryDto {
     id: string;
@@ -6,5 +6,5 @@ export interface BookshelfEntryDto {
     bookRead: string;
     added: string;
     lastUpdated: string;
-    book: Book;
+    book: BookModel;
 }

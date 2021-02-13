@@ -1,6 +1,6 @@
-import { Book } from '../../models/Book';
-import { BookshelfEntry } from '../../models/BookshelfEntry';
-import { User } from '../../models/User';
+import { BookModel } from '../../models/Book';
+import { BookshelfEntryModel } from '../../models/BookshelfEntry';
+import { UserModel } from '../../models/User';
 import { BookshelfEntryDto } from './BookshelfEntryDto';
 
 const baseUrl = 'https://localhost:5001/api';
@@ -23,9 +23,9 @@ const makeRequestJson = <T>(path: string, method: string = 'GET'): Promise<T> =>
 const makeRequestText = (path: string, method: string = 'GET'): Promise<string> =>
     makeRequest(path, method).then(response => response.text());
 
-export const getUser = (): Promise<User> => makeRequestJson<User>('/user');
+export const getUser = (): Promise<UserModel> => makeRequestJson<UserModel>('/user');
 
-export const getBookshelf = async (userId: string, shelfName: string): Promise<BookshelfEntry[]> => {
+export const getBookshelf = async (userId: string, shelfName: string): Promise<BookshelfEntryModel[]> => {
     const dtos = await makeRequestJson<BookshelfEntryDto[]>(`/user/${userId}/shelves/${shelfName}`);
     return dtos.map(entry => ({
         id: entry.id,
@@ -33,12 +33,12 @@ export const getBookshelf = async (userId: string, shelfName: string): Promise<B
         bookRead: new Date(entry.bookRead),
         added: new Date(entry.added),
         lastUpdated: new Date(entry.lastUpdated),
-        book: entry.book as Book
+        book: entry.book as BookModel
     }));
 };
 
 export const getRequestToken = (): Promise<string> =>
     makeRequestText('/oauth/request_token', 'POST');
 
-export const getAccessToken = (requestToken: string): Promise<User> =>
-    makeRequestJson<User>(`/oauth/access_token?request_token=${requestToken}`, 'POST');
+export const getAccessToken = (requestToken: string): Promise<UserModel> =>
+    makeRequestJson<UserModel>(`/oauth/access_token?request_token=${requestToken}`, 'POST');

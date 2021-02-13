@@ -1,10 +1,10 @@
-import { Book } from './Book';
+import { BookModel } from './Book';
 
-export interface BookshelfEntry {
+export interface BookshelfEntryModel {
     id: string;
     bookStarted?: Date;
     bookRead?: Date;
     added: Date;
     lastUpdated: Date;
-    book: Book;
+    book: BookModel;
 }

@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
-import { BookshelfEntry } from '../../../models/BookshelfEntry';
+import { BookshelfEntryModel } from '../../../models/BookshelfEntry';
 import { getBookshelf } from '../../../services/BookBingoApi';
-import BookTable from '../../bookTable';
+import BookSelectTable from '../../bookTable';
 import './Books.scss';
 
 export default function BooksPage(): JSX.Element {
     const context = useContext(UserContext);
-    const [shelf, setShelf] = useState<BookshelfEntry[]>([]);
+    const [shelf, setShelf] = useState<BookshelfEntryModel[]>([]);
 
     useEffect(() => {
         if (context.user) {
@@ -19,7 +19,7 @@ export default function BooksPage(): JSX.Element {
     return (
         <div>
             <h3>Books!</h3>
-            <BookTable books={shelf} />
+            <BookSelectTable books={shelf} />
         </div>
     );
 }
