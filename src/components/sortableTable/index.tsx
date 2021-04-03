@@ -1,4 +1,3 @@
-import React from 'react';
 import { Sortable, SortState } from '../sortable';
 import { Column, Row, Table, TableProps } from '../table';
 
@@ -22,7 +21,8 @@ export function SortableTable<T>(props: SortableTableProps<T>): JSX.Element {
                             ...col,
                             header: <SortableColumnHeader col={col} sort={sort} updateSort={updateSort}/>
                         }))
-                    }/>
+                    }
+                />
             )
         }
     </Sortable>;
@@ -35,7 +35,7 @@ interface SortableColumnHeaderProps<T> {
 }
 
 function SortableColumnHeader<T>(props: SortableColumnHeaderProps<T>): JSX.Element {
-    const isSortOrder = props.sort.element === props.col.key
+    const isSortOrder = props.sort.element === props.col.key;
     const sortIndicator = isSortOrder ?
         <span className='sortIndicator'>{props.sort.direction === 'asc' ? '▲' : '▼'}</span> :
         null;

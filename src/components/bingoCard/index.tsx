@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { BingoCardModel } from '../../models/BingoCard';
 import { BingoCardSquareModel } from '../../models/BingoCardSquare';

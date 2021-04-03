@@ -1,4 +1,3 @@
-import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import BooksPage from '../pages/books';
 import LoginCallbackPage from '../pages/login/callback';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BookshelfEntryModel } from '../../models/BookshelfEntry';
 import { SortableColumn, SortableTable } from '../sortableTable';
 import './BookTable.scss';

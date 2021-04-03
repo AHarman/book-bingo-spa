@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import { BookshelfEntryModel } from '../../../models/BookshelfEntry';
 import { getBookshelf } from '../../../services/BookBingoApi';

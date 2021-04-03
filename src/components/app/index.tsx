@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Banner from '../banner';
 import { UserContext, UserContextType } from '../../context/UserContext';
@@ -17,7 +16,7 @@ export default function App(): JSX.Element {
 
     useEffect(() => {
         if (!context.user) {
-            getUser().then(user => context.setUser(user)).catch(e => console.log('oh no', e));
+            getUser().then(user => context.setUser(user)).catch(e => console.error('oh no', e));
         }
     }, [context]);
 

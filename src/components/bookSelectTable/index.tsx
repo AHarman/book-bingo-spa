@@ -1,4 +1,3 @@
-import React from 'react';
 import { BookTableProps, BookTableRow, columns as bookColumns, createBookRow } from '../bookTable';
 import { SortableColumn, SortableTable } from '../sortableTable';
 
@@ -8,7 +7,7 @@ interface BookSelectTableRow extends BookTableRow {
 
 const columns: SortableColumn<BookSelectTableRow>[] = [
     ...bookColumns,
-    { key: 'button', header: '', isSortable: false, displayTransform: () => <button>Select this book</button> }
+    { key: 'button', header: '', isSortable: false, displayTransform: (): JSX.Element => <button>Select this book</button> }
 ];
 
 export default function BookSelectTable(props: BookTableProps): JSX.Element {
